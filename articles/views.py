@@ -67,3 +67,10 @@ def comment_create(request, article_id):
 
     else:
         return redirect('articles:index')
+
+def comment_delete(request, article_id, id):
+    if request.method =='POST':
+        comment = Comment.objects.get(id=id)
+        comment.delete()
+    # POST든 아니든 디테일 페이지로 돌아가도록 인덴트를 빼줌    
+    return redirect('articles:detail', id=article_id)

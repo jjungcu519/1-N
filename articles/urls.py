@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:id>/', views.detail, name='detail'),
     path('create/', views.create, name='create'),
     # create 한 댓글을 생성? 관리하는 페이지
-    path('<int:article_id>/coments/create/', views.comment_create, name='comment_create'),
+    path('<int:article_id>/comments/create/', views.comment_create, name='comment_create'),
+    path('<int:article_id>/comments/<int:id>/delete/', views.comment_delete, name='comment_delete'),
 ]
